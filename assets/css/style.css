@@ -1,0 +1,493 @@
+/* Including the Yomogi font from Google fonts */
+
+@import url('https://fonts.googleapis.com/css2?family=Handlee&family=Yomogi&display=swap');
+
+*
+{
+    box-sizing: border-box;
+
+    /* To remove default margin 
+    and padding from few elements */
+    
+    margin: 0;
+    padding: 0;
+}
+
+:root {
+    --primary-color: #0ab604;
+    --secondary-color: #1c3fa8;
+    --dark-color: #000000;
+  }
+  
+
+body
+{
+    font-family: 'Yomogi';
+    color: #333;
+    line-height: 2.0;
+}
+
+ul
+{
+    list-style-type: none;
+}
+
+a{
+    text-decoration: none;
+    color: #333;
+}
+
+p{
+    margin: 10px 0;
+}
+
+img{
+    width: 100%;
+}
+
+h1,h2
+{
+    line-height: 1.5;
+    font-weight: 100;
+    margin: 10px 0;
+}
+
+/* Styling the Navbar */
+.navbar
+{
+    background-color: var(--dark-color);
+    color: #ffffff;
+    height: 82px;
+}
+
+.navbar ul
+{
+    display: flex;
+    flex-direction: row;
+}
+
+.navbar a {
+    color: #ffffff;
+    padding: 12px;
+    margin: 0 8px;
+}
+
+.navbar a:hover {
+    color: var(--primary-color);
+    border-bottom: 2px var(--primary-color) solid;
+    font-weight: 700;
+    /* background-color: var(--primary-color); */
+}
+
+.toggle-button {
+    position: absolute;
+    top: 1.8rem;
+    right: 1rem;
+    display: none;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 30px;
+    height: 21px;
+    border: 10px solid #fff;
+    border-radius: 50px;
+    background-color: #fff;
+}
+
+.toggle-button .bar {
+    height: 3px;
+    width: 100%;
+    background-color: white;
+    border-radius: 10px solid;
+}
+  
+
+.nav-container
+{
+    display: flex;
+    height: 100%;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.navbar-links
+{
+    display: none;
+}
+
+
+/* Text Autocomplete */
+
+.console-container {
+  font-size:2rem;
+}
+.console-underscore {
+   display:inline-block;
+  position:relative;
+  top:-0.14em;
+  left:2px;
+}
+
+
+/* Lookup for a book screen */
+
+.lookup {
+    height: 400px;
+    background-color: var(--dark-color);
+    color: #fff;
+    position: relative;
+  }
+  
+  .lookup h1 {
+    font-size: 40px;
+  }
+  
+  .lookup p {
+    margin: 20px 0;
+  }
+  
+  .lookup .grid {
+    overflow: visible;
+    grid-template-columns: 55% auto;
+    gap: 30px;
+  }
+  
+  .lookup-text {
+    animation: slideInFromLeft 1s ease-in;
+  }
+  
+  .lookup-form {
+    position: relative;
+    top: 60px;
+    height: 350px;
+    width: 400px;
+    padding: 40px;
+    z-index: 100;
+    justify-self: flex-end;
+    animation: slideInFromRight 1s ease-in;
+  }
+  
+  .lookup-form .form-control {
+    margin: 30px 0;
+  }
+  
+  .lookup-form input[type='text'],
+  .lookup-form input[type='email'] {
+    border: 0;
+    border-bottom: 1px solid #686e75;
+    width: 100%;
+    padding: 3px;
+    font-size: 16px;
+  }
+  
+  .lookup-form input:focus {
+    outline: none;
+  }
+  
+  .lookup::before,
+  .lookup::after {
+    content: '';
+    position: absolute;
+    height: 100px;
+    bottom: -70px;
+    right: 0;
+    left: 0;
+    background: #ffffff;
+    transform: skewY(-3deg);
+    -webkit-transform: skewY(-3deg);
+    -moz-transform: skewY(-3deg);
+    -ms-transform: skewY(-3deg);
+  }
+
+  #searchBooks
+  {
+    padding: 5px 10px;
+  }
+
+
+  
+  /* Books */
+  
+  .books .flex {
+    flex-wrap: wrap;
+  }
+  
+  .books .card {
+    text-align: center;
+    margin: 18px 10px 40px;
+    transition: transform 0.2s ease-in;
+  }
+  
+  .books .card h4 {
+    font-size: 20px;
+    margin-bottom: 10px;
+  }
+  
+  .books .card:hover {
+    transform: translateY(-15px);
+  }
+
+  .book-image-card
+  {
+    height: 500px;
+    width: 280px;
+  }
+  
+  .book-search-img
+  {
+    height: 30vh;
+    width: 15vw;
+    
+  }
+  
+  .book_res
+  {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    height: 50vh;
+    width: 50vw;
+  }
+  .book_res .card
+  {
+    font-family: sans-serif;
+    transition: all 1s ease-in-out;
+  }
+
+  .book_res .card:hover
+  {
+    transform: scale(1.08)
+  }
+
+
+  /* Book Lending */
+  .book-lend-card
+  {
+    margin: auto;
+    position: relative;
+    width: 70vw;
+    height: 60vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: visible;
+  }
+
+  .book-lend-card .form-control input
+  {
+      padding: 0.6rem;
+      margin-bottom: 0.6rem;
+      border-radius: 7px;
+      border: 1px solid #0ab604;
+      outline: none;
+  }
+
+  
+  
+  /* Borrowing Book */
+
+  #tableContainer
+  {
+    width: 92vw;
+    margin: auto;
+    padding: 0;
+  }
+  .titem td
+  {
+    padding-left: 2rem;
+    padding-right: 2rem;
+  }
+  .titem:nth-child(odd) {
+    background: rgb(188, 243, 183);
+  }
+  
+  /* Footer */
+  .footer .social a {
+    margin: 0 10px;
+  }
+
+  .footer nav ul li
+  {
+      padding: 10px;
+  }
+  .footer nav ul li:hover
+  {
+      cursor: pointer;
+      background-color: var(--primary-color);
+      border-radius: 15px;
+      color: #000000;
+  }
+
+  /* About Us */
+
+  .aboutSection
+  {
+    flex-wrap: wrap;
+  }
+  .reachSection
+  {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+  }
+
+  .reachForm
+  {
+    position: relative;
+    top: 0px;
+    height: 450px;
+    width: 400px;
+    padding: 40px;
+    z-index: 100;
+  }
+  
+  /* Animations */
+  @keyframes slideInFromLeft {
+    0% {
+      transform: translateX(-100%);
+    }
+  
+    100% {
+      transform: translateX(0);
+    }
+  }
+  
+  @keyframes slideInFromRight {
+    0% {
+      transform: translateX(100%);
+    }
+  
+    100% {
+      transform: translateX(0);
+    }
+  }
+  
+  @keyframes slideInFromTop {
+    0% {
+      transform: translateY(-100%);
+    }
+  
+    100% {
+      transform: translateX(0);
+    }
+  }
+  
+  @keyframes slideInFromBottom {
+    0% {
+      transform: translateY(100%);
+    }
+  
+    100% {
+      transform: translateX(0);
+    }
+  }
+  
+  /* Tablets and under */
+  @media (max-width: 768px) {
+    .grid,
+    .lookup .grid,
+    .stats .grid,
+    .cli .grid,
+    .cloud .grid,
+    .features-main .grid,
+    .docs-main .grid {
+      grid-template-columns: 1fr;
+      grid-template-rows: 1fr;
+    }
+  
+    .lookup {
+      height: auto;
+    }
+  
+    .lookup-text {
+      text-align: center;
+      margin-top: 40px;
+      animation: slideInFromTop 1s ease-in;
+    }
+  
+    .lookup-form {
+      justify-self: center;
+      margin: auto;
+      animation: slideInFromBottom 1s ease-in;
+    }
+
+    .footer .grid
+    {
+        grid-template-columns: repeat(1, 1fr);
+    }
+  
+    
+  }
+  
+  /* Mobile */
+  @media (max-width: 700px) {
+    .navbar {
+      height: 110px;
+    }
+  
+    .navbar .flex {
+      flex-direction: column;
+      flex-wrap: wrap;
+    }
+  
+    
+
+    .navbar ul {
+        display: none;
+        width: 100%;
+    }
+
+    .navbar ul {
+        width: 100%;
+        flex-direction: column;
+    }
+
+    .navbar ul li {
+        text-align: center;
+    }
+
+    .navbar ul li a {
+        padding: .5rem 1rem;
+    }
+
+
+    
+    .lookup-form {
+      width: 300px;
+    }
+
+    .toggle-button {
+        display: flex;
+    }
+
+    .navbar-links.active 
+    {
+        transition: all 5s;
+        display: flex;
+        height: 50vh;
+        width: 100vw;
+        padding: 50px;
+        margin: auto;
+        border-radius: 50px;
+    }
+
+    .navbar-links ul li:hover
+    {
+        background-color: var(--primary-color);
+        border-radius: 4px;
+        padding: 10px;
+    }
+
+    .footer .grid
+    {
+        grid-template-columns: repeat(1, 1fr);
+    }
+
+    #tableContainer
+    {
+      display: block;
+      max-width: 92vw;
+      padding: 0;
+      margin: auto;
+    }
+}
